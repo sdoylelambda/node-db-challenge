@@ -5,7 +5,7 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('actions').insert([
-        { actionsName: 'rowValue1'},
+        { actionsName: 'action rowValue1'},
         { actionsName: 'rowValue2'},
         { actionsName: 'rowValue3'}
       ]);
