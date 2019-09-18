@@ -12,7 +12,10 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    
+    const newPost = req.body
+    db('resources').insert(newPost)
+    .then(resPost => res.status(200).json({ post: newPost[0] }))
+    .catch(err => res.status(400).json({ err: err.message }))
 });
 
 

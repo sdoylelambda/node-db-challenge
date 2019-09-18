@@ -12,7 +12,12 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    
+    const newProject = req.body;
+    db('projects').insert(newProject)
+        .then(projects => {
+            res.status(200).json({ created: newProject[0] })
+        })
+        .catch(err => res.status(400).json({ err: err.message }))
 });
 
 
